@@ -14,7 +14,7 @@ function trump(){
 }
 
 function ronSwanson () {
-	$.get("http://ron-swanson-quotes.herokuapp.com/v2/quotes", function(data, status){ 
+	$.get("https://ron-swanson-quotes.herokuapp.com/v2/quotes", function(data, status){ 
  		var words= data[0].split(' ')
 		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
 		let promise = giphy('parks and rec swanson ' + longest);
@@ -52,7 +52,7 @@ let pastQuotes = []
 let pastGifs =[]
 
 function giphy (keyword) {
-	return $.get(`http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=tQkrEE0TCEi8bePhpBak8YCoML9C7XX7&limit=1`, function(data, status){ 
+	return $.get(`https://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=tQkrEE0TCEi8bePhpBak8YCoML9C7XX7&limit=1`, function(data, status){ 
 	});
 }
 
@@ -92,7 +92,7 @@ $('#voteTrump.voteButton').click(function (e) {
 $('#voteSwanson.voteButton').click(function (e) {
 	swansonTally++;
 	$('.swansonScore p').html(`${swansonTally}`);
-	let swansonWinner = `<img src='http://www.reactiongifs.com/wp-content/uploads/2013/07/ron-moved.gif'/>`
+	let swansonWinner = `<img src='https://www.reactiongifs.com/wp-content/uploads/2013/07/ron-moved.gif'/>`
 	if (swansonTally == 5) {
 		finalPage();
 		$('.js-results').removeClass('hidden');
