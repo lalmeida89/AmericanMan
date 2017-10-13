@@ -65,18 +65,18 @@ let trumpTally = 0;
 let swansonTally = 0;
 
 
-$('#start-debate').click(function(e) {
+$('#start-debate').on('click touchstart', function(e) {
 	$('#quotesAndGifs').removeClass('hidden');
 	$(this).addClass('hidden');
 	$('.start-gifs').addClass('hidden');
 	getQuotes();
 });
 
-$('.voteButton').click(function(e) {
+$('.voteButton').on('click touchstart',function(e) {
 	getQuotes();
 });
 
-$('#voteTrump.voteButton').click(function (e) {
+$('#voteTrump.voteButton').on('click touchstart',function (e) {
 	trumpTally++;
 	$('.trumpScore p').html(`${trumpTally}`);
 	let trumpWinner = `<img src='https://media.tenor.com/images/8cbb4d991cf9f7505b4396cc9455e1a4/tenor.gif'/>`
@@ -89,7 +89,7 @@ $('#voteTrump.voteButton').click(function (e) {
 	};	
 });
 
-$('#voteSwanson.voteButton').click(function (e) {
+$('#voteSwanson.voteButton').on('click touchstart',function (e) {
 	swansonTally++;
 	$('.swansonScore p').html(`${swansonTally}`);
 	let swansonWinner = `<img src='https://www.reactiongifs.com/wp-content/uploads/2013/07/ron-moved.gif'/>`
@@ -112,7 +112,7 @@ function finalPage() {
 	$('.start').addClass('hidden');
 }
 
-$('.restart-btn').click(function(e) {
+$('.restart-btn').on('click touchstart',function(e) {
 	resetTally();
 	$('#quotesAndGifs').removeClass('hidden');
 	$('.js-results').addClass('hidden');
