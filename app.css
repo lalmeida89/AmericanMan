@@ -62,7 +62,7 @@ button {
       blue,
       red
       );
-  color: white;
+  color: #fff;
   font-size: 14px;
   margin-bottom: 10px;
   padding: 5px;
@@ -103,7 +103,7 @@ h1 {
       blue,
       red
       );
-	color: white;
+	color: #fff;
 }
 
 body {
@@ -252,9 +252,5 @@ body {
   .js-results {
     width: 95%;
     height: 75%;
-  }
-
-  h1 {
-    color: white;
   }
 }

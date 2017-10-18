@@ -1,5 +1,3 @@
-alert(Date.now());
-
 function trump(){
 	$.get("https://api.whatdoestrumpthink.com/api/v1/quotes/random", function(data, status){ 
 		var words= data.message.split(' ')
@@ -61,7 +59,6 @@ let swansonTally = 0;
 
 //on start debate button, hide opening page and reveal the
 $('#start-debate').on('click touchstart', function(e) {
-	alert('blah');
 	$('#quotesAndGifs').removeClass('hidden');
 	$(this).addClass('hidden');
 	$('.start-gifs').addClass('hidden');
@@ -84,15 +81,6 @@ $('#trumpCard').click(function (e) {
 		$('.js-results-text').html(`<h3>You are a winner. The best winner. And I know winners. </h3>`);
 		
 	};	
-});
-
-
-//$('a').on('click', 'a', false);
-
-$('iframe').click(function(e){
-     e.preventDefault();
-     e.stopPropogation();
-     return false;
 });
 
 $('#swansonCard').click(function (e) {
@@ -125,5 +113,4 @@ $('.restart-btn').on('click touchstart',function(e) {
 	$('.js-results').addClass('hidden');
 	$('.start').removeClass('hidden');
 	pastGifs = [];
-	console.log(pastGifs);
 });
