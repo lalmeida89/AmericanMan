@@ -21,6 +21,11 @@
   margin: 0 1% 4%;
 }
 
+iframe {
+  pointer-events: none;
+}
+
+
 #swansonCard:hover {
   background-color: #8ebbcc;
 }
@@ -172,14 +177,6 @@ body {
  		width: 45%;
  	}
 
-  iframe {
-	  position: absolute;
-	  top: 33%;
-	  display: flex;
-    width: 100%;
-    pointer-events: none;
-  }
-
 	.versus {
   	display: inline-block;
   	position: absolute;
@@ -217,6 +214,13 @@ body {
     box-shadow:0 2px 6px;
     padding: 10px;
     margin-bottom: 20px;
+  }
+
+  iframe {
+    position: absolute;
+    top: 33%;
+    display: flex;
+    width: 100%;
   }
 
   .trumpScore {

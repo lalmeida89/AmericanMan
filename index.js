@@ -59,6 +59,7 @@ let swansonTally = 0;
 
 //on start debate button, hide opening page and reveal the
 $('#start-debate').on('click touchstart', function(e) {
+	alert('blah');
 	$('#quotesAndGifs').removeClass('hidden');
 	$(this).addClass('hidden');
 	$('.start-gifs').addClass('hidden');
