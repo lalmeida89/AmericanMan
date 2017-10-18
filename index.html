@@ -9,10 +9,11 @@
 	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	crossorigin="anonymous"></script>
 	<link href="app.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
 </head>
 <body>
 	<header>
-		<h1 class='txt-center'>WHO IS THE MOST AMERICAN?</h1>
+		<h1 class='txt-center'>THE MOST AMERICAN MAN IN AMERICA</h1>
 	</header>
 	<section class='start txt-center'>
 		<div class='scoreboard'>
@@ -28,31 +29,32 @@
 		</div>
 
 		<div class='start-gifs'>
+			<button id='start-debate' class='txt-center'>START THE DEBATE</button>
 			<img src='https://media.giphy.com/media/z48aJruaX0Jsk/giphy.gif' class='float-right ' id='gif'/>
 			<img src='https://media.giphy.com/media/d7qFTitBNU9kk/giphy.gif' class='float-left ' id='gif'/>
-			
-			<button id='start-debate' class='txt-center'>START THE DEBATE</button>
 		</div>
+	
 	</section>
 
+	
 	<main id='quotesAndGifs' class='hidden'>
 
-		<div class="card">
+		<div class="card" id='swansonCard'>
 			<div class="ronSwanson">
 				<div class='ronQuotes'></div>
 				<div class='ron-gif'></div>
 				<div class='bottom-div'>
-					<button class='voteButton' id='voteSwanson'>Vote For Swanson</button>
+					<!--<button class='voteButton' id='voteSwanson'>Vote For Swanson</button>-->
 				</div>
 			</div>
 		</div>
 
-		<div class="card">
+		<div class="card" id='trumpCard'>
 			<div class="donnyTrump">
 				<div class='donnyQuotes'></div>
 				<div class='don-gif'></div>
 				<div class='bottom-div'>
-					<button class='voteButton' id='voteTrump'>Vote For Trump</button>
+					<!--<button class='voteButton' id='voteTrump'>Vote For Trump</button>-->
 				</div>
 			</div>
 		</div>

@@ -3,11 +3,10 @@ function trump(){
 		var words= data.message.split(' ')
 		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
 		let promise = giphy('trump ' + longest);
-		promise.done(function(d) {	
-			checkPastQuotes(data.message, trump);
-			checkPastGifs(d.data[0].embed_url, trump)	
+		promise.done(function(d) {
+			let gif_url = checkPastGifs(d.data)	
 			$('.donnyQuotes').html(`<h4>${data.message}</h4>`);
-			let html = `<iframe src="${d.data[0].embed_url}" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`
+			let html = `<iframe src="${gif_url}" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`
 		 	$('.don-gif').html(html); 
 		});
 	});
@@ -19,40 +18,34 @@ function ronSwanson () {
 		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
 		let promise = giphy('parks and rec swanson ' + longest);
 		promise.done(function(d) {		
-			checkPastQuotes(data, ronSwanson);
-			checkPastGifs(d.data[0].embed_url, ronSwanson)
+			let gif_url = checkPastGifs(d.data)	
 			$('.ronQuotes').html(`<h4>${data}</h4>`);
-			let html = `<iframe src="${d.data[0].embed_url}" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`
+			let html = `<iframe src="${gif_url}" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`
 			$('.ron-gif').html(html)
 		});
 	});
 }
 
-function checkPastQuotes(data, callback) {
-	if (pastQuotes.indexOf(data) > -1) {
-		return callback();
+function checkPastGifs(data) {
+	console.log(data);
+	for (let i = 0; i < data.length; i++){
+		let url = data[i].embed_url;
+		console.log(url);
+		if (pastGifs.indexOf(url) > -1 ) {
+			console.log(`${url} repeat`)
+		}
+		else {
+			pastGifs.push(url);
+			return url;
+		}
 	}
-	else {
-		pastQuotes.push(data);
-		console.log(pastQuotes);
-	}
+	return data[0].embed_url;
 }
 
-function checkPastGifs(url, callback) {
-	if (pastGifs.indexOf(url) > -1 ) {
-		return callback();
-	}
-	else {
-		pastGifs.push(url);
-		console.log(pastGifs);
-	}
-}
-
-let pastQuotes = []
 let pastGifs =[]
 
 function giphy (keyword) {
-	return $.get(`https://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=tQkrEE0TCEi8bePhpBak8YCoML9C7XX7&limit=1`, function(data, status){ 
+	return $.get(`https://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=tQkrEE0TCEi8bePhpBak8YCoML9C7XX7`, function(data, status){ 
 	});
 }
 
@@ -64,7 +57,7 @@ function getQuotes () {
 let trumpTally = 0;
 let swansonTally = 0;
 
-
+//on start debate button, hide opening page and reveal the
 $('#start-debate').on('click touchstart', function(e) {
 	$('#quotesAndGifs').removeClass('hidden');
 	$(this).addClass('hidden');
@@ -72,12 +65,13 @@ $('#start-debate').on('click touchstart', function(e) {
 	getQuotes();
 });
 
-$('.voteButton').on('click touchstart',function(e) {
-	getQuotes();
-});
+//$('.card').on('click touchstart',function(e) {
+//	getQuotes();
+//});
 
-$('#voteTrump.voteButton').on('click touchstart',function (e) {
+$('#trumpCard').click(function (e) {
 	trumpTally++;
+	getQuotes();
 	$('.trumpScore p').html(`${trumpTally}`);
 	let trumpWinner = `<img src='https://media.tenor.com/images/8cbb4d991cf9f7505b4396cc9455e1a4/tenor.gif'/>`
 	if (trumpTally == 5) {
@@ -89,8 +83,18 @@ $('#voteTrump.voteButton').on('click touchstart',function (e) {
 	};	
 });
 
-$('#voteSwanson.voteButton').on('click touchstart',function (e) {
+
+//$('a').on('click', 'a', false);
+
+$('iframe').click(function(e){
+     e.preventDefault();
+     e.stopPropogation();
+     return false;
+});
+
+$('#swansonCard').click(function (e) {
 	swansonTally++;
+	getQuotes();
 	$('.swansonScore p').html(`${swansonTally}`);
 	let swansonWinner = `<img src='https://www.reactiongifs.com/wp-content/uploads/2013/07/ron-moved.gif'/>`
 	if (swansonTally == 5) {
@@ -117,5 +121,6 @@ $('.restart-btn').on('click touchstart',function(e) {
 	$('#quotesAndGifs').removeClass('hidden');
 	$('.js-results').addClass('hidden');
 	$('.start').removeClass('hidden');
-
+	pastGifs = [];
+	console.log(pastGifs);
 });
