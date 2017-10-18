@@ -25,6 +25,9 @@ iframe {
   pointer-events: none;
 }
 
+button {
+  cursor: pointer;
+}
 
 #swansonCard:hover {
   background-color: #8ebbcc;
@@ -246,4 +249,12 @@ body {
     background-color: white;
   }
 
+  .js-results {
+    width: 95%;
+    height: 75%;
+  }
+
+  h1 {
+    color: white;
+  }
 }
