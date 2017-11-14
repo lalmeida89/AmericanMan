@@ -1,12 +1,21 @@
-* { 
+* {
 	box-sizing: border-box;
 }
 
 .hidden {
-	display: none;
+	display: none !important;
 }
 
-.card {
+h4 {
+	all: unset;
+	display: block;
+}
+
+h3, p {
+	display: inline;
+}
+
+/*.card {
 	border: 1px solid #484848;
   border-radius: 15px;
   box-shadow:0 2px 6px;
@@ -19,22 +28,16 @@
   position: relative;
   text-align: center;
   margin: 0 1% 4%;
+  background-color: white;
 }
-
+/*
+*/
 iframe {
   pointer-events: none;
 }
 
 button {
   cursor: pointer;
-}
-
-#swansonCard:hover {
-  background-color: #8ebbcc;
-}
-
-#trumpCard:hover{
-  background-color: #e5a0a1;
 }
 
 .js-results {
@@ -52,13 +55,19 @@ button {
   background-color: white;
 }
 
+.js-results-text {
+	padding: .2em;
+	margin: .2em 0;
+}
+
 .restart-btn {
   border-radius: 10px;
   border: 1px solid white;
   color: white;
-  background-image: 
+	margin-top: 1em ;
+  background-image:
   linear-gradient(
-      to right, 
+      to right,
       blue,
       red
       );
@@ -78,7 +87,7 @@ button {
 .js-results-gif > img {
   width: 100%;
 }
-
+/*
 .voteButton {
   border-radius: 10px;
   border: 1px solid white;
@@ -87,40 +96,16 @@ button {
   margin-bottom: 10px;
   padding: 5px;
 }
-
+*/
 .txt-center {
 	text-align: center
 }
-
+/*
 .versus {
   display: none;
 }
-
-h1 {
-	background-image: 
-	linear-gradient(
-      to right, 
-      blue,
-      red
-      );
-	color: #fff;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	all: unset;
-	background-image: 
-	linear-gradient(
-      to top right, 
-      #1aa3ff, 
-      white,
-      white,
-      #ff4d4d
-      );
-    font-family: helvetica;
-}
-
+*/
+/*
 #start-debate {
   top: -20%;
   z-index: 2;
@@ -164,16 +149,16 @@ body {
     right: 0;
     position: absolute;
   }
-  
 
-  .float-left {
+
+  .player-1-gif {
   	position: absolute;
 		left: 0;
  		padding: 10px;
  		width: 45%;
  	}
 
-  .float-right {
+  .player-2-gif {
 		position: absolute;
  		right: 0;
  		padding: 10px;
@@ -227,7 +212,7 @@ body {
   }
 
   .trumpScore {
-    float: right;
+    float: left;
     text-align: center;
     border: 1px solid #484848;
     border-radius: 15px;
@@ -236,7 +221,7 @@ body {
     margin-bottom: 20px;
   }
 }
-  	
+
 @media only screen and (max-width: 640px) {
   .scoreboard {
     width: 50%;
@@ -254,3 +239,4 @@ body {
     height: 75%;
   }
 }
+*/

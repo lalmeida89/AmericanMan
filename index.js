@@ -1,28 +1,68 @@
+//fetches random quote, finds the longest word
+
 function trump(){
-	$.get("https://api.whatdoestrumpthink.com/api/v1/quotes/random", function(data, status){ 
+	$.get("https://api.whatdoestrumpthink.com/api/v1/quotes/random", function(data, status){
 		var words= data.message.split(' ')
 		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
 		let promise = giphy('trump ' + longest);
 		promise.done(function(d) {
-			let gif_url = checkPastGifs(d.data)	
+			let gif_url = checkPastGifs(d.data)
 			$('.donnyQuotes').html(`<h4>${data.message}</h4>`);
 			let html = `<iframe src="${gif_url}" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`
-		 	$('.don-gif').html(html); 
+		 	$('.don-gif').html(html);
 		});
 	});
 }
 
 function ronSwanson () {
-	$.get("https://ron-swanson-quotes.herokuapp.com/v2/quotes", function(data, status){ 
+	$.get("https://ron-swanson-quotes.herokuapp.com/v2/quotes", function(data, status){
+		console.log(data);
  		var words= data[0].split(' ')
 		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
 		let promise = giphy('parks and rec swanson ' + longest);
-		promise.done(function(d) {		
-			let gif_url = checkPastGifs(d.data)	
+		promise.done(function(d) {
+			let gif_url = checkPastGifs(d.data)
 			$('.ronQuotes').html(`<h4>${data}</h4>`);
 			let html = `<iframe src="${gif_url}" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`
 			$('.ron-gif').html(html)
 		});
+	});
+}
+
+function chuckNorris () {
+	$.get("https://api.chucknorris.io/jokes/random", function(data, status){
+		console.log(data);
+ 		var words= data.value.split(' ')
+		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
+		let promise = giphy('chuck norris ' + longest);
+		promise.done(function(d) {
+			let gif_url = checkPastGifs(d.data)
+			$('.chuckQuotes').html(`<h4>${data.value}</h4>`);
+			let html = `<iframe src="${gif_url}" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`
+			$('.chuck-gif').html(html)
+		});
+	});
+}
+
+function daddy () {
+	$.ajax({
+		url: 'https://icanhazdadjoke.com/',
+  	headers: {
+    	"Accept": "text/plain;",
+    	"Content-Type": "text/plain;"
+  	},
+  success : function(data) {
+		console.log(data);
+ 		var words= data.split(' ')
+		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
+		let promise = giphy('dad jokes' + longest);
+		promise.done(function(d) {
+			let gif_url = checkPastGifs(d.data)
+			$('.dadQuotes').html(`<h4>${data}</h4>`);
+			let html = `<iframe src="${gif_url}" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`
+				$('.dad-gif').html(html)
+			});
+  	}
 	});
 }
 
@@ -45,29 +85,23 @@ function checkPastGifs(data) {
 let pastGifs =[]
 
 function giphy (keyword) {
-	return $.get(`https://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=tQkrEE0TCEi8bePhpBak8YCoML9C7XX7`, function(data, status){ 
+	return $.get(`https://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=tQkrEE0TCEi8bePhpBak8YCoML9C7XX7`, function(data, status){
 	});
 }
 
 function getQuotes () {
 	trump();
 	ronSwanson();
-}
+	chuckNorris();
+	daddy();
+};
 
 let trumpTally = 0;
 let swansonTally = 0;
+let chuckTally = 0;
+let dadTally = 0;
 
-//on start debate button, hide opening page and reveal the
-$('#start-debate').on('click touchstart', function(e) {
-	$('#quotesAndGifs').removeClass('hidden');
-	$(this).addClass('hidden');
-	$('.start-gifs').addClass('hidden');
-	getQuotes();
-});
 
-//$('.card').on('click touchstart',function(e) {
-//	getQuotes();
-//});
 
 $('#trumpCard').click(function (e) {
 	trumpTally++;
@@ -79,8 +113,36 @@ $('#trumpCard').click(function (e) {
 		$('.js-results').removeClass('hidden');
 		$('.js-results-gif').html(trumpWinner);
 		$('.js-results-text').html(`<h3>You are a winner. The best winner. And I know winners. </h3>`);
-		
-	};	
+
+	};
+});
+
+$('#chuckCard').click(function (e) {
+	chuckTally++;
+	getQuotes();
+	$('.chuckScore p').html(`${chuckTally}`);
+	let chuckWinner = `<img src='https://media.tenor.com/images/8cbb4d991cf9f7505b4396cc9455e1a4/tenor.gif'/>`
+	if (chuckTally == 5) {
+		finalPage();
+		$('.js-results').removeClass('hidden');
+		$('.js-results-gif').html(chuckWinner);
+		$('.js-results-text').html(`<h3>You are a winner. The best winner. And I know winners. </h3>`);
+
+	};
+});
+
+$('#dadCard').click(function (e) {
+	dadTally++;
+	getQuotes();
+	$('.dadScore p').html(`${dadTally}`);
+	let dadWinner = `<img src='https://media.tenor.com/images/8cbb4d991cf9f7505b4396cc9455e1a4/tenor.gif'/>`
+	if (dadTally == 5) {
+		finalPage();
+		$('.js-results').removeClass('hidden');
+		$('.js-results-gif').html(dadWinner);
+		$('.js-results-text').html(`<h3>You are a winner. The best winner. And I know winners. </h3>`);
+
+	};
 });
 
 $('#swansonCard').click(function (e) {
@@ -99,18 +161,22 @@ $('#swansonCard').click(function (e) {
 function resetTally () {
 	trumpTally = 0;
 	swansonTally = 0;
-	$('.trumpScore p, .swansonScore p').html(0);
+	dadScore = 0;
+	chuckScore = 0;
+	$('.trumpScore p, .swansonScore p, .dadScore p, .chuckScore p').html(0);
 }
 
 function finalPage() {
 	$('#quotesAndGifs').addClass('hidden');
-	$('.start').addClass('hidden');
+	$('.instructions').addClass('hidden');
 }
 
 $('.restart-btn').on('click touchstart',function(e) {
 	resetTally();
-	$('#quotesAndGifs').removeClass('hidden');
 	$('.js-results').addClass('hidden');
-	$('.start').removeClass('hidden');
+	$('.instructions').removeClass('hidden');
+	$('#quotesAndGifs').removeClass('hidden');
 	pastGifs = [];
 });
+
+getQuotes();
