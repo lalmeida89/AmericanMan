@@ -34,6 +34,7 @@ h3, p {
 */
 iframe {
   pointer-events: none;
+	margin-top: 10px;
 }
 
 button {

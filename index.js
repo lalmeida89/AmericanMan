@@ -29,9 +29,14 @@ function ronSwanson () {
 	});
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function chuckNorris () {
 	$.get("https://api.chucknorris.io/jokes/random", function(data, status){
-		console.log(data);
+		capitalizeFirstLetter(data.value);
+		console.log(data.value);
  		var words= data.value.split(' ')
 		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
 		let promise = giphy('chuck norris ' + longest);
@@ -101,8 +106,6 @@ let swansonTally = 0;
 let chuckTally = 0;
 let dadTally = 0;
 
-
-
 $('#trumpCard').click(function (e) {
 	trumpTally++;
 	getQuotes();
@@ -121,12 +124,12 @@ $('#chuckCard').click(function (e) {
 	chuckTally++;
 	getQuotes();
 	$('.chuckScore p').html(`${chuckTally}`);
-	let chuckWinner = `<img src='https://media.tenor.com/images/8cbb4d991cf9f7505b4396cc9455e1a4/tenor.gif'/>`
+	let chuckWinner = `<img src='https://i2.wp.com/gifrific.com/wp-content/uploads/2012/04/nobody-crosses-chucknorris.gif?ssl=1'/>`
 	if (chuckTally == 5) {
 		finalPage();
 		$('.js-results').removeClass('hidden');
 		$('.js-results-gif').html(chuckWinner);
-		$('.js-results-text').html(`<h3>You are a winner. The best winner. And I know winners. </h3>`);
+		$('.js-results-text').html(`<h3> You did it. Consider yourself lucky. You get to live another day </h3>`);
 
 	};
 });
@@ -135,12 +138,12 @@ $('#dadCard').click(function (e) {
 	dadTally++;
 	getQuotes();
 	$('.dadScore p').html(`${dadTally}`);
-	let dadWinner = `<img src='https://media.tenor.com/images/8cbb4d991cf9f7505b4396cc9455e1a4/tenor.gif'/>`
+	let dadWinner = `<img src='http://www.usc.co.uk/images/social/jimsdad1.gif'/>`
 	if (dadTally == 5) {
 		finalPage();
 		$('.js-results').removeClass('hidden');
 		$('.js-results-gif').html(dadWinner);
-		$('.js-results-text').html(`<h3>You are a winner. The best winner. And I know winners. </h3>`);
+		$('.js-results-text').html(`<h3>You did great kiddo. Your father would be proud if only he weren't so disappointed in you </h3>`);
 
 	};
 });
