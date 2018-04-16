@@ -33,11 +33,19 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+var filterWords = ["fuck", "shit", "fucking", "cock", "asshole"];
+        // "i" is to ignore case and "g" for global
+        var rgx = new RegExp(filterWords.join(""), "gi");
+
+        function wordFilter(str) {
+                return str.replace(rgx, "****");
+        }
+
 function chuckNorris () {
 	$.get("https://api.chucknorris.io/jokes/random", function(data, status){
-		capitalizeFirstLetter(data.value);
-		console.log(data.value);
- 		var words= data.value.split(' ')
+		var words= data.value.split(' ')
+		data.value.capitalizeFirstLetter();
+		data.value.wordFilter();
 		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
 		let promise = giphy('chuck norris ' + longest);
 		promise.done(function(d) {
