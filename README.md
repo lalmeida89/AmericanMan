@@ -10,14 +10,23 @@ Gifs are then fetched based on the quotes to make your decision just a little bi
 
 ![first-slide](public/images/first-slide.png)
 
+
+
+
 After a vote is cast, each candidate will give you a new quote and gif to vote on.
 
 ![second-slide](public/images/second-slide.png)
+
+
+
 
 Once a candidate receives 5 votes, he is declared the winner and, most importantly
 **The Most American Man in America!**
 
 ![third-slide](public/images/final-slide.png)
+
+
+
 
 ### Tech Used
 
