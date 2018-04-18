@@ -9,6 +9,7 @@ Four candidates will try to gain your vote with quotes fetched by an API.
 Gifs are then fetched based on the quotes to make your decision just a little bit harder.
 
 ![intro-slide]('first-slide.png')
+![results-slide](public/images/first-slide.png)
 
 After a vote is cast, each candidate will give you a new quote and gif to vote on.
 
