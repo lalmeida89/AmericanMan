@@ -43,9 +43,7 @@ var filterWords = ["fuck", "shit", "fucking", "cock", "asshole"];
 
 function chuckNorris () {
 	$.get("https://api.chucknorris.io/jokes/random", function(data, status){
-		var words= data.value.split(' ')
-		data.value.capitalizeFirstLetter();
-		data.value.wordFilter();
+		var words= data.value.split(' ');
 		var longest = words.reduce(function (a, b) { return a.length > b.length ? a : b; });
 		let promise = giphy('chuck norris ' + longest);
 		promise.done(function(d) {

@@ -1,7 +1,7 @@
 # American Man
 
 It's time to find out who among us is the most American Man in America. Head over to
-[American Man]('https://lalmeida89.github.io/AmericanMan/') to cast your vote!
+[American Man](https://lalmeida89.github.io/AmericanMan/) to cast your vote!
 
 ### This game is about Democracy!
 
