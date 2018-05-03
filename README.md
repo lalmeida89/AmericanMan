@@ -8,7 +8,7 @@ It's time to find out who among us is the most American Man in America. Head ove
 Four candidates will try to gain your vote with quotes fetched by an API.
 Gifs are then fetched based on the quotes to make your decision just a little bit harder.
 
-![first-slide](public/images/first-slide.png){: height="250px" width="500px" align="left"}
+![first-slide](public/images/first-slide.png =250x500)
 &nbsp;
 &nbsp;
 &nbsp;
