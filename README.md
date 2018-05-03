@@ -55,11 +55,11 @@ most importantly, <br>
 
 ### Tech Used
 
-* Chuck Norris Quotes API
-* Donald Trump Quotes API
-* Ron Swanson Quotes API
-* Dad Quotes API
-* Giphy API
+* Chuck Norris Quotes API - [Link](https://api.chucknorris.io/)
+* Donald Trump Quotes API - [Link](https://www.tronalddump.io/)
+* Ron Swanson Quotes API - [Link](https://github.com/jamesseanwright/ron-swanson-quotes)
+* Dad Quotes API - [Link](https://icanhazdadjoke.com/api)
+* Giphy API - [Link](https://developers.giphy.com/)
 * JavaScript
 * AJAX
 * JQuery
