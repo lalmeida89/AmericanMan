@@ -1,12 +1,13 @@
 # American Man
 
 It's time to find out who among us is the most American Man in America. Head over to
-[American Man](https://lalmeida89.github.io/AmericanMan/) to cast your vote!
+[American Man](https://lalmeida89.github.io/AmericanMan/) <br> to cast your vote!
 
 ### This game is about Democracy!
 
 Four candidates will try to gain your vote with quotes fetched by an API.
-Gifs are then fetched based on the quotes to make your decision just a little bit harder.
+Gifs are then fetched based <br>
+on the quotes to make your decision just a little bit harder.
 
 <img src='public/images/first-slide.png' width='650' height='275' />
 &nbsp;
