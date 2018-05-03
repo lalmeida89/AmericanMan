@@ -9,7 +9,10 @@ Four candidates will try to gain your vote with quotes fetched by an API.
 Gifs are then fetched based on the quotes to make your decision just a little bit harder.
 
 ![first-slide](public/images/first-slide.png)
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 
 
