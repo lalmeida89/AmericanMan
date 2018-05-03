@@ -34,7 +34,7 @@ After a vote is cast, each candidate will give you a new quote and gif to vote o
 
 
 Once a candidate receives 5 votes, he is declared the winner and,
-most importantly, < /br>
+most importantly, <br>
 **The Most American Man in America!**
 
 &nbsp;
